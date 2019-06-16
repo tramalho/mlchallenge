@@ -8,4 +8,29 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SearchTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="buttonStyle">@style/SearchTheme.Button</item>
+        <item name="editTextStyle">@style/SearchTheme.EditText</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <style name="SearchTheme" parent="SearchTheme.Base"/>
+
+    <style name="AppTheme.ProgressBar" parent="Base.Widget.AppCompat.ProgressBar">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="SearchTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="android:textColor">@drawable/text_selector</item>
+    </style>
+
+    <style name="SearchTheme.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@drawable/search_edittext_selector</item>
+    </style>
+
 </resources>

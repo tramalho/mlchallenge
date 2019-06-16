@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MLChallenge</string>
+    <string name="find">Buscar</string>
+    <string name="input_hint">Buscar produtos, marcas e muito mais…</string>
 </resources>

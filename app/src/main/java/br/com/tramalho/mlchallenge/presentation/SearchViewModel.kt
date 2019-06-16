@@ -15,8 +15,8 @@ import kotlinx.coroutines.launch
 
 class SearchViewModel(private val repository: ItemRepository) : ViewModel() {
 
-    val loading = MutableLiveData<Int>()
-    val searchValue = MutableLiveData<String>().apply { value = "chromecast" }
+    val loading = MutableLiveData<Int>().apply { value = GONE }
+    val searchValue = MutableLiveData<String>().apply { value = "" }
     val dataStatus = SingleLiveEvent<ViewResult<List<ItemSearch>>>()
 
     fun find() = viewModelScope.launch {
