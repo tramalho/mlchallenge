@@ -1,7 +1,7 @@
 package br.com.tramalho.mlchallenge.presentation
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import br.com.tramalho.mlchallenge.R
 
 class SearchActivity : AppCompatActivity() {
