@@ -1,9 +1,10 @@
 package br.com.tramalho.mlchallenge.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import br.com.tramalho.mlchallenge.data.entity.Installments
 import br.com.tramalho.mlchallenge.data.entity.ItemResult
 import br.com.tramalho.mlchallenge.data.entity.ItemSearch
-import br.com.tramalho.mlchallenge.data.infra.ViewResult
+import br.com.tramalho.mlchallenge.data.entity.Paging
 import br.com.tramalho.mlchallenge.data.infra.network.Result
 import br.com.tramalho.mlchallenge.data.repository.ItemRepository
 import br.com.tramalho.mlchallenge.utils.CoroutinesTestRule
@@ -29,7 +30,7 @@ class SearchViewModelTest {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private val itemResult: ItemResult = ItemResult(listOf(ItemSearch("")))
+    private val itemResult: ItemResult = createItemResult()
 
     private val errorMessageException = "errorMessageException"
 
@@ -52,7 +53,7 @@ class SearchViewModelTest {
         viewModel.find()
 
         viewModel.dataStatus.observeForTesting {
-            assertEquals(ViewResult.Success(itemResult.results), viewModel.dataStatus.value)
+            assertEquals(ViewResult.Success(itemResult), viewModel.dataStatus.value)
         }
     }
 
@@ -69,5 +70,10 @@ class SearchViewModelTest {
             assertEquals(ViewResult.Failure(errorResult), viewModel.dataStatus.value)
             assertEquals(errorMessageException, (viewModel.dataStatus.value as ViewResult.Failure).error.message)
         }
+    }
+
+    private fun createItemResult(): ItemResult {
+        val item = ItemSearch("", "", "", Installments(0,0.0))
+        return ItemResult("", Paging(0, 0, 0), listOf(item))
     }
 }
