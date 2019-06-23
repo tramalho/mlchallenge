@@ -6,6 +6,10 @@ import android.view.View
 import androidx.annotation.DimenRes
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Decorator criado para permitir o espacamento entre os elementos
+ * da lista
+ */
 class ItemOffsetDecoration(private val mItemOffset: Int) : RecyclerView.ItemDecoration() {
 
     constructor(context: Context, @DimenRes itemOffsetId: Int) : this(

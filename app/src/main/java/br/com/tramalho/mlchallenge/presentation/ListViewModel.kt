@@ -10,9 +10,13 @@ import br.com.tramalho.mlchallenge.data.infra.network.Result
 import br.com.tramalho.mlchallenge.data.repository.ItemRepository
 import kotlinx.coroutines.launch
 
-class ListViewModel(private val repository: ItemRepository) : ViewModel() {
+class ListViewModel(
+    private val repository: ItemRepository) : ViewModel() {
 
     val dataReceived = MutableLiveData<ArrayList<ItemSearch>>()
+
+    get
+    var title: String = ""
 
     private lateinit var itemResult: ItemResult
 
@@ -30,6 +34,8 @@ class ListViewModel(private val repository: ItemRepository) : ViewModel() {
 
         this.itemResult = itemResult
         this.itemResult.results = arrayListOf()
+
+        this.title = this.itemResult.query
     }
 
     fun find() = viewModelScope.launch {

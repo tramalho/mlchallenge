@@ -73,7 +73,7 @@ class SearchViewModelTest {
     }
 
     private fun createItemResult(): ItemResult {
-        val item = ItemSearch("", "", "", Installments(0,0.0))
+        val item = ItemSearch("", "", "", Installments(0,0.0), 0.0)
         return ItemResult("", Paging(0, 0, 0), listOf(item))
     }
 }

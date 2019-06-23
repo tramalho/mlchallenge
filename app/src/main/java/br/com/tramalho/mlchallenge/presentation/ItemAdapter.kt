@@ -1,6 +1,7 @@
 package br.com.tramalho.mlchallenge.presentation
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -29,9 +30,7 @@ class ItemAdapter(private val onItemClickAction: (ItemSearch) -> Unit) :
 
         fun bind(item: ItemSearch) = with(binding) {
 
-            val inst = item.installments
-            installmentAmount = root.context.getString(R.string.installlments_template,
-                inst.quantity.toString(), inst.amount.toString())
+            installmentAmount = defineValue(root, item)
 
             description = item.title
 
@@ -39,6 +38,19 @@ class ItemAdapter(private val onItemClickAction: (ItemSearch) -> Unit) :
 
             root.setOnClickListener { onItemClickAction(item) }
             executePendingBindings()
+        }
+
+        /**
+         * Tratamento para os casos onde nao existe parcelamento
+         */
+        private fun defineValue(root: View, item: ItemSearch): String {
+
+            item.installments?.let {
+                return root.context.getString(R.string.installlments_template,
+                    it.quantity.toString(), it.amount.toString())
+            }
+
+            return root.context.getString(R.string.full_price, item.price.toString())
         }
     }
 

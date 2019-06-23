@@ -4,5 +4,6 @@
     <string name="input_hint">Buscar produtos, marcas e muito mais…</string>
     <string name="title_activity_list">ListActivity</string>
     <string name="installlments_template">%1$sX R$ %2$s</string>
+    <string name="full_price">R$ %1$s</string>
     <string name="something_wrong">Ops, parece que algo deu errado, tente novamente</string>
 </resources>

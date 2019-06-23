@@ -18,11 +18,19 @@
         <item name="android:layout_margin">5dp</item>
     </style>
 
-    <style name="SearchTheme" parent="SearchTheme.Base"/>
-
-    <style name="AppTheme.ProgressBar" parent="Base.Widget.AppCompat.ProgressBar">
-        <item name="colorAccent">@color/colorPrimary</item>
+    <style name="DetailTheme" parent="SearchTheme.Base">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:layout_margin">0dp</item>
     </style>
+
+    <style name="DetailTheme.ActionBar">
+    <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    <item name="actionBarWidgetTheme">@null</item>
+    <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+
+    <style name="SearchTheme" parent="SearchTheme.Base"/>
 
     <style name="SearchTheme.Button" parent="Widget.AppCompat.Button.Colored">
         <item name="colorButtonNormal">@color/colorAccent</item>

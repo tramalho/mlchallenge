@@ -11,7 +11,10 @@ import br.com.tramalho.mlchallenge.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
-
+/**
+ * Binding criado para permitir que a insercao da url
+ * via viewModel inicialize a busca das imagens via Glide
+ */
 @BindingAdapter(value = ["imageUrl"], requireAll = false)
 fun loadImage(imageView: ImageView, url: String?) {
 
@@ -25,6 +28,10 @@ fun loadImage(imageView: ImageView, url: String?) {
     }
 }
 
+/**
+ * Permite a insercao de um observer do scroll da recycler
+ * e posterior disparo da function enviada como parametro
+ */
 fun RecyclerView.loadMore(onLoadMore: () -> Unit) {
     this.addOnScrollListener(EndlessRecyclerOnScrollListener(onLoadMore))
 }

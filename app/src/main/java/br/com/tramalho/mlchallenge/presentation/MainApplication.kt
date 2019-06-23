@@ -15,11 +15,10 @@ class MainApplication : Application() {
         super.onCreate()
 
         startKoin {
-            // Use Koin Android Logger
+            // loga os elementos injetados
             androidLogger()
-            // declare Android context
             androidContext(this@MainApplication)
-            // declare modules to use
+            // adiciona a lista de modulos com os objetos injetaveis
             modules(arrayListOf(urlModule, networkModule, presentationModule, repositoryModule))
         }
     }

@@ -14,6 +14,13 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".presentation.ItemDetailsActivity"
+                  android:theme="@style/DetailTheme"
+                  android:parentActivityName=".presentation.ListActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="br.com.tramalho.mlchallenge.presentation.ListActivity"/>
+        </activity>
         <activity
                 android:name=".presentation.ListActivity"
                 android:parentActivityName=".presentation.SearchActivity">

@@ -1,5 +1,6 @@
 package br.com.tramalho.mlchallenge.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -32,7 +33,9 @@ class ListActivity : AppCompatActivity() {
         listItem.layoutManager = layoutManager
 
         val clickAction = { itemSearch: ItemSearch ->
-
+            val intent = Intent(this, ItemDetailsActivity::class.java)
+            //intent.putExtra(Constants.EXTRA_DATA, data)
+            startActivity(intent)
         }
 
         listItem.adapter = ItemAdapter(clickAction)
@@ -51,8 +54,8 @@ class ListActivity : AppCompatActivity() {
 
         val itemResult = intent.getParcelableExtra<ItemResult>(Constants.EXTRA_DATA)
 
-        supportActionBar?.title = itemResult.query
-
         viewModel.addValue(itemResult)
+
+        supportActionBar?.title = viewModel.title
     }
 }

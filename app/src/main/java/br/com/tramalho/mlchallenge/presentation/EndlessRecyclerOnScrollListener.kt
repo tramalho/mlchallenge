@@ -3,6 +3,10 @@ package br.com.tramalho.mlchallenge.presentation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Listener observando o scroll da recycler view, ira invocar a function caso identifique
+ * que o total de itens ainda nao visiveis seja menor que o valor apurado via calculo     
+ */
 class EndlessRecyclerOnScrollListener(val onLoadMore: () -> Unit) : RecyclerView.OnScrollListener() {
 
     private var mPreviousTotal = 1
@@ -15,19 +19,18 @@ class EndlessRecyclerOnScrollListener(val onLoadMore: () -> Unit) : RecyclerView
         }
 
         val visibleItemCount = recyclerView.childCount
-        val totalItemCount = recyclerView.layoutManager?.getItemCount()
-        val firstVisibleItem = (recyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
+        val totalItemCount = recyclerView.layoutManager?.getItemCount() ?: 0
+        val lastVisibleItem = (recyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
 
         if (mLoading) {
-            if (totalItemCount!! > mPreviousTotal) {
+            if (totalItemCount > mPreviousTotal) {
                 mLoading = false
                 mPreviousTotal = totalItemCount
             }
         }
 
         val visibleThreshold = 5
-        if (!mLoading && totalItemCount!! - visibleItemCount <= firstVisibleItem + visibleThreshold) {
-            // End has been reached
+        if (!mLoading && totalItemCount - visibleItemCount <= lastVisibleItem + visibleThreshold) {
 
             onLoadMore()
 

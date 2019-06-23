@@ -9,7 +9,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import retrofit2.Response
 
-class CoroutineExecutorCallTest {
+class CoroutineExecutorTest {
 
     private enum class MockStates {
         SUCCESS, FAILURE, EXCEPTION
