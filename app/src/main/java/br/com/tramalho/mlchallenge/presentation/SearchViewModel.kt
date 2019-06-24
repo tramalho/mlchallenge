@@ -40,6 +40,7 @@ class SearchViewModel(private val repository: ItemRepository) : ViewModel() {
     private fun searchSuccess(itemResult: ItemResult) {
         dataStatus.value = ViewResult.Success(itemResult)
         loading.value = GONE
+        buttonEnabled.value = true
     }
 
     /**
