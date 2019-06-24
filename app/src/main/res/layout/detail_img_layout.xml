@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="imgUrl" type="String"/>
+    </data>
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:minWidth="450dp"
+            android:minHeight="300dp"
+            android:scaleType="centerCrop"
+            imageUrl="@{imgUrl}"
+            android:contentDescription="@string/app_name">
+    </ImageView>
+</layout>

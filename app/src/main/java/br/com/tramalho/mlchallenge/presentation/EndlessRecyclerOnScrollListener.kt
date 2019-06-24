@@ -29,7 +29,7 @@ class EndlessRecyclerOnScrollListener(val onLoadMore: () -> Unit) : RecyclerView
             }
         }
 
-        val visibleThreshold = 5
+        val visibleThreshold = 3
         if (!mLoading && totalItemCount - visibleItemCount <= lastVisibleItem + visibleThreshold) {
 
             onLoadMore()

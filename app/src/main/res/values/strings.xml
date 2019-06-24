@@ -3,7 +3,13 @@
     <string name="find">Buscar</string>
     <string name="input_hint">Buscar produtos, marcas e muito mais…</string>
     <string name="title_activity_list">ListActivity</string>
-    <string name="installlments_template">%1$sX R$ %2$s</string>
-    <string name="full_price">R$ %1$s</string>
+    <string name="installlments_template">%1$sX %2$s</string>
     <string name="something_wrong">Ops, parece que algo deu errado, tente novamente</string>
+    <string name="attributes">Características</string>
+    <string name="description">Descrição</string>
+    <string name="sold">%1$s vendidos</string>
+    <string name="try_again">tentar novamente</string>
+    <string name="error_msg">Ops, parece que tivemos um problema ao tentar recuperar dados. Clique no botão abaixo para
+        tentar novamente
+    </string>
 </resources>

@@ -47,10 +47,10 @@ class ItemAdapter(private val onItemClickAction: (ItemSearch) -> Unit) :
 
             item.installments?.let {
                 return root.context.getString(R.string.installlments_template,
-                    it.quantity.toString(), it.amount.toString())
+                    it.quantity.toString(), formatCurrency(it.amount))
             }
 
-            return root.context.getString(R.string.full_price, item.price.toString())
+            return formatCurrency(item.price).toString()
         }
     }
 

@@ -34,7 +34,7 @@ class ListActivity : AppCompatActivity() {
 
         val clickAction = { itemSearch: ItemSearch ->
             val intent = Intent(this, ItemDetailsActivity::class.java)
-            //intent.putExtra(Constants.EXTRA_DATA, data)
+            intent.putExtra(Constants.EXTRA_DATA, itemSearch)
             startActivity(intent)
         }
 

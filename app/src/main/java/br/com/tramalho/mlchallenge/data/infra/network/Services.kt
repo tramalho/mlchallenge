@@ -11,7 +11,7 @@ import retrofit2.http.Query
 
 interface ItemService {
 
-    @GET("search")
+    @GET("sites/MLB/search")
     fun searchItemByName(
         @Query("q") name: String,
         @Query("limit") limit: Int,

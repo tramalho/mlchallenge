@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout">
+
+    <data>
+
+        <variable
+                name="sharedViewModel"
+                type="br.com.tramalho.mlchallenge.presentation.ItemDetaislViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{safeUnbox(sharedViewModel.errorVisibility), default = gone}"
+            tools:visibility="visible">
+
+        <ImageView
+                android:id="@+id/imageStatus"
+                android:layout_width="@dimen/error_img_size"
+                android:layout_height="@dimen/error_img_size"
+                android:src="@drawable/logo_mercado_livre_256"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/app_name"
+                android:layout_marginBottom="@dimen/default_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="32dp"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintVertical_bias="0.129"/>
+        <Button
+                android:id="@+id/tryAgainButton"
+                android:text="@string/try_again"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->sharedViewModel.tryAgain()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tryAgainMessage"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+                android:id="@+id/tryAgainMessage"
+                android:text="@string/error_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                app:layout_constraintTop_toBottomOf="@+id/imageStatus"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

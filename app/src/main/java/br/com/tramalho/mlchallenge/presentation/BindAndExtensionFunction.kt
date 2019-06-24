@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.tramalho.mlchallenge.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import java.text.NumberFormat
 
 /**
  * Binding criado para permitir que a insercao da url
@@ -42,4 +43,9 @@ fun Activity.closeKeyboard() {
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+}
+
+fun formatCurrency(price: Double): String? {
+    val format = NumberFormat.getCurrencyInstance()
+    return format.format(price)
 }

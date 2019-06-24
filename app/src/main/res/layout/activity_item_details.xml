@@ -4,8 +4,9 @@
 
     <data>
         <variable name="viewModel"
-                  type="br.com.tramalho.mlchallenge.presentation.SearchViewModel"/>
+                  type="br.com.tramalho.mlchallenge.presentation.ItemDetaislViewModel"/>
     </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/coordinator"
             android:layout_width="match_parent"
@@ -13,6 +14,7 @@
             android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.AppBarLayout
+                android:visibility="@{viewModel.successVisibility}"
                 android:id="@+id/appbarlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,12 +29,21 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
+                android:visibility="@{viewModel.successVisibility}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
-            <include layout="@layout/content_detail"/>
+
+            <include layout="@layout/content_detail"
+                     app:sharedViewModel="@{viewModel}"/>
 
         </androidx.core.widget.NestedScrollView>
+
+        <include layout="@layout/error_layout"
+                 app:sharedViewModel="@{viewModel}"/>
+
+        <include layout="@layout/progress_layout"
+                 app:sharedViewModel="@{viewModel}"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

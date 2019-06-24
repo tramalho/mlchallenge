@@ -26,14 +26,12 @@ data class ItemDetail(
     val title: String,
     val price: Double,
     val pictures: List<Picture>,
-    @Json(name = "sold_quantity") val soldQuantity: Int,
-    val atributes: List<Atribute>
+    @field:Json(name = "sold_quantity")
+    val soldQuantity: Int
 )
 
 data class Picture(val url: String)
 
-data class Atribute(val name: String, @Json(name = "value_name") val valueName: String)
-
-data class ItemDescription(@Json(name = "plain_text") val description: String)
+data class ItemDescription(@field:Json(name = "plain_text") val description: String)
 
 data class ItemDetailResult(val itemDetail: ItemDetail, val description: String)
