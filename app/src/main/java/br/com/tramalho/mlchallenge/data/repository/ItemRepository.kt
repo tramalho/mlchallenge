@@ -5,7 +5,6 @@ import br.com.tramalho.mlchallenge.data.entity.ItemResult
 import br.com.tramalho.mlchallenge.data.infra.network.ItemService
 import br.com.tramalho.mlchallenge.data.infra.network.Result
 import br.com.tramalho.mlchallenge.data.infra.network.call
-import br.com.tramalho.mlchallenge.data.infra.network.parseResult
 
 class ItemRepository(private val service: ItemService) {
 
@@ -15,8 +14,8 @@ class ItemRepository(private val service: ItemService) {
 
     suspend fun findDetail(id: String): Result<ItemDetailResult> {
 
-        val result1 = parseResult(service.searchItemById(id).await())
-        val result2 = parseResult(service.searchItemDescriptionById(id).await())
+        val result1 = call { service.searchItemById(id) }
+        val result2 = call { service.searchItemDescriptionById(id) }
 
         return when {
             result1 is Result.Failure -> result1
