@@ -30,7 +30,7 @@ class ItemRepositoryTest {
     @Before
     fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
-        itemDetail = ItemDetail("", 0.0, listOf(), 0, listOf())
+        itemDetail = ItemDetail("", 0.0, listOf(), 0)
         itemDescription = ItemDescription("")
     }
 
